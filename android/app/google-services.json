@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "563510527909",
+    "project_id": "nti5-c1e0c",
+    "storage_bucket": "nti5-c1e0c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:563510527909:android:bb51cd24227ca6fdfb8a4c",
+        "android_client_info": {
+          "package_name": "com.example.nti5"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD78JwK2ps84sN7U85yh-IExEcf_0QhgDo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
