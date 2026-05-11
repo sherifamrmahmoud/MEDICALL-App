@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nti5/features/find_doctor/screens/doctor_profile_screen.dart';
 import '../cubit/find_doctor_cubit.dart';
 import '../cubit/find_doctor_state.dart';
 import '../widgets/doctor_card.dart';
@@ -127,15 +128,24 @@ class _FindDoctorView extends StatelessWidget {
                           itemCount: state.filteredDoctors.length,
                           separatorBuilder: (_, __) =>
                               const SizedBox(height: 12),
-                          itemBuilder: (context, index) => DoctorCard(
-                            doctor: state.filteredDoctors[index],
-                            onLikeTap: () => context
-                                .read<FindDoctorCubit>()
-                                .toggleLike(index),
-                            onBookTap: () {
-                              // TODO: Navigate to booking screen
-                            },
-                          ),
+                          itemBuilder: (context, index) {
+  final doctor = state.filteredDoctors[index];
+
+  return DoctorCard(
+    doctor: doctor,
+    onLikeTap: () {
+      context.read<FindDoctorCubit>().toggleLike(doctor.id);
+    },
+    onBookTap: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (_) => DoctorProfileScreen(doctor: doctor),
+        ),
+      );
+    },
+  );
+},
                         ),
                 ),
               ],
