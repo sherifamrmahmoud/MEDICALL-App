@@ -12,6 +12,18 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (_) => HomeCubit()..loadHome(),
+      child: const _HomeView(),
+    );
+  }
+}
+
+class _HomeView extends StatelessWidget {
+  const _HomeView();
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF5F6FA),
       appBar: _buildAppBar(),
@@ -58,7 +70,7 @@ class HomeScreen extends StatelessWidget {
           return const SizedBox.shrink();
         },
       ),
-      bottomNavigationBar: _buildBottomNav(),
+      bottomNavigationBar: _BottomNav(currentIndex: 0),
     );
   }
 
@@ -76,7 +88,11 @@ class HomeScreen extends StatelessWidget {
               color: const Color(0xFF00BFA6),
               borderRadius: BorderRadius.circular(8),
             ),
-            child: Image.asset('assets/small_logo.png', width: 20, height: 20),
+            child: const Icon(
+              Icons.local_hospital,
+              color: Colors.white,
+              size: 18,
+            ),
           ),
           const SizedBox(width: 8),
           const Text(
@@ -101,10 +117,18 @@ class HomeScreen extends StatelessWidget {
       ],
     );
   }
+}
 
-  BottomNavigationBar _buildBottomNav() {
+// ─── Shared Bottom Nav ───────────────────────────────────────────────────────
+
+class _BottomNav extends StatelessWidget {
+  final int currentIndex;
+  const _BottomNav({required this.currentIndex});
+
+  @override
+  Widget build(BuildContext context) {
     return BottomNavigationBar(
-      currentIndex: 0,
+      currentIndex: currentIndex,
       selectedItemColor: const Color(0xFF1565C0),
       unselectedItemColor: Colors.grey,
       backgroundColor: Colors.white,
@@ -132,8 +156,19 @@ class HomeScreen extends StatelessWidget {
           label: 'Profile',
         ),
       ],
-      onTap: (_) {
-        // TODO: Navigation
+      onTap: (index) {
+        if (index == currentIndex) return;
+        switch (index) {
+          case 0:
+            Navigator.pushReplacementNamed(context, '/home');
+            break;
+          case 1:
+            Navigator.pushReplacementNamed(context, '/appointment');
+            break;
+          case 2:
+            Navigator.pushReplacementNamed(context, '/ProfileScreen');
+            break;
+        }
       },
     );
   }
@@ -195,10 +230,7 @@ class _SearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (_) => const FindDoctorScreen()),
-        );
+        Navigator.pushNamed(context, '/find');
       },
       child: Container(
         decoration: BoxDecoration(
@@ -213,7 +245,7 @@ class _SearchBar extends StatelessWidget {
           ],
         ),
         child: const TextField(
-          enabled: false, // دي أهم حاجة عشان تمنع ظهور الكيبورد
+          enabled: false,
           decoration: InputDecoration(
             hintText: 'Search doctors or symptoms',
             hintStyle: TextStyle(color: Colors.grey, fontSize: 14),

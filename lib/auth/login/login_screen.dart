@@ -238,12 +238,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Center(
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (_) => const SignupScreen(),
-                              ),
-                            );
+                            Navigator.pushNamed(context, '/signup');
                           },
                           child: const Text(
                             "Create an account",

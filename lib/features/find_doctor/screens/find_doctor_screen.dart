@@ -29,8 +29,11 @@ class _FindDoctorView extends StatelessWidget {
         elevation: 0,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
-          icon: const Icon(Icons.arrow_back_ios,
-              color: Color(0xFF1A1A2E), size: 20),
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: Color(0xFF1A1A2E),
+            size: 20,
+          ),
         ),
         title: const Text(
           'Find a Doctor',
@@ -57,14 +60,15 @@ class _FindDoctorView extends StatelessWidget {
           }
           if (state is FindDoctorError) {
             return Center(
-              child: Text(state.message,
-                  style: const TextStyle(color: Colors.red)),
+              child: Text(
+                state.message,
+                style: const TextStyle(color: Colors.red),
+              ),
             );
           }
           if (state is FindDoctorLoaded) {
             return Column(
               children: [
-                // ── Sticky Search + Filters ──
                 Container(
                   color: Colors.white,
                   padding: const EdgeInsets.fromLTRB(16, 8, 16, 12),
@@ -81,17 +85,23 @@ class _FindDoctorView extends StatelessWidget {
                           decoration: InputDecoration(
                             hintText: 'Search by name or specialty',
                             hintStyle: const TextStyle(
-                                color: Colors.grey, fontSize: 14),
-                            prefixIcon: const Icon(Icons.search,
-                                color: Colors.grey, size: 20),
+                              color: Colors.grey,
+                              fontSize: 14,
+                            ),
+                            prefixIcon: const Icon(
+                              Icons.search,
+                              color: Colors.grey,
+                              size: 20,
+                            ),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: BorderSide.none,
                             ),
                             filled: true,
                             fillColor: const Color(0xFFF5F6FA),
-                            contentPadding:
-                                const EdgeInsets.symmetric(vertical: 12),
+                            contentPadding: const EdgeInsets.symmetric(
+                              vertical: 12,
+                            ),
                           ),
                         ),
                       ),
@@ -104,20 +114,16 @@ class _FindDoctorView extends StatelessWidget {
                     ],
                   ),
                 ),
-
-                // ── Doctor List ──
                 Expanded(
                   child: state.filteredDoctors.isEmpty
                       ? const Center(
                           child: Text(
                             'No doctors found',
-                            style:
-                                TextStyle(color: Colors.grey, fontSize: 14),
+                            style: TextStyle(color: Colors.grey, fontSize: 14),
                           ),
                         )
                       : ListView.separated(
-                          padding:
-                              const EdgeInsets.fromLTRB(16, 16, 16, 16),
+                          padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
                           itemCount: state.filteredDoctors.length,
                           separatorBuilder: (_, __) =>
                               const SizedBox(height: 12),
@@ -145,14 +151,16 @@ class _FindDoctorView extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 8,
         type: BottomNavigationBarType.fixed,
-        selectedLabelStyle:
-            const TextStyle(fontSize: 11, fontWeight: FontWeight.w600),
+        selectedLabelStyle: const TextStyle(
+          fontSize: 11,
+          fontWeight: FontWeight.w600,
+        ),
         unselectedLabelStyle: const TextStyle(fontSize: 11),
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.search_outlined),
-            activeIcon: Icon(Icons.search),
-            label: 'Explore',
+            icon: Icon(Icons.home_outlined),
+            activeIcon: Icon(Icons.home),
+            label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.calendar_month_outlined),
@@ -165,7 +173,19 @@ class _FindDoctorView extends StatelessWidget {
             label: 'Profile',
           ),
         ],
-        onTap: (_) {},
+        onTap: (index) {
+          switch (index) {
+            case 0:
+              Navigator.pushReplacementNamed(context, '/home');
+              break;
+            case 1:
+              Navigator.pushReplacementNamed(context, '/appointment');
+              break;
+            case 2:
+              Navigator.pushReplacementNamed(context, '/profile');
+              break;
+          }
+        },
       ),
     );
   }
