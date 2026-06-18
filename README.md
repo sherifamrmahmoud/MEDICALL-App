@@ -3,40 +3,45 @@
 Medicall is a scalable medical consultation application built with **Flutter**. It connects patients with certified doctors for 24/7 care, providing a seamless, user-friendly, and secure healthcare experience.
 
 <div align="center">
-  <img src="assets/medicall 1.png" width="300" />
-
+  <img src="assets/medicall_1.png" width="300" />
 </div>
+
 ---
 
 ## 📸 App Preview
 
 <div align="center">
-  <img src="assets/medicall 3.png" width="300" />
-  <p><i>Onboarding & Welcome Screen</i></p>
+  <img src="assets/medicall_3.png" width="300" />
+  <br>
+  <b>✨ Onboarding & Welcome Experience</b>
 </div>
 
 <br>
 
 <div align="center">
-  <img src="assets/medicall 4.png" width="300" />
-  <img src="assets/medicall 5.png" width="300" />
-  <p><i>Authentcation (Login & SignUp) </i></p>
+  <img src="assets/medicall_4.png" width="300" />
+  <img src="assets/medicall_5.png" width="300" />
+  <br>
+  <b>🔐 Secure Authentication (Login & Sign-Up)</b>
 </div>
 
-<div align="center">
-  <img src="assets/medicall 6.png" width="250" />
-  <img src="assets/medicall 7.png" width="250" />
+<br>
 
-  <img src="assets/medicall 8.png" width="250" />
-  
-  <p><i>Home Dashboard, Find Doctor, and Doctor Profile</i></p>
+<div align="center">
+  <img src="assets/medicall_6.png" width="240" />
+  <img src="assets/medicall_7.png" width="240" />
+  <img src="assets/medicall_8.png" width="240" />
+  <br>
+  <b>🏠 Home Dashboard, Doctor Search & Profile</b>
 </div>
 
+<br>
+
 <div align="center">
-  <img src="assets/medicall 10.png" width="250" />
-  <img src="assets/medicall 9.png" width="250" />
-  
-  <p><i>Medical Records Management, and Appointment Checkout</i></p>
+  <img src="assets/medicall_10.png" width="240" />
+  <img src="assets/medicall_9.png" width="240" />
+  <br>
+  <b>📂 Records Management & Checkout System</b>
 </div>
 
 ---
