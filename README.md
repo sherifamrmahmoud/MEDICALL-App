@@ -12,6 +12,8 @@ Medicall is a scalable medical consultation application built with **Flutter**. 
 
 <div align="center">
   <img src="assets/medicall 2.png" width="300" />
+  <img src="assets/medicall 3.png" width="300" />
+
   <br>
   <h3>✨ Onboarding & Welcome Experience</h3>
 </div>
@@ -19,7 +21,6 @@ Medicall is a scalable medical consultation application built with **Flutter**. 
 <br>
 
 <div align="center">
-  <img src="assets/medicall 3.png" width="300" />
   <img src="assets/medicall 4.png" width="300" />
   <img src="assets/medicall 5.png" width="300" />
   <br>
