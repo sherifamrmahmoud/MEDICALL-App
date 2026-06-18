@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../core/theme/colors_manager.dart'; // تأكد من المسار
+import '../../../../core/theme/colors_manager.dart';
 
 class SummarySection extends StatelessWidget {
   const SummarySection({super.key});
@@ -36,12 +36,9 @@ class SummarySection extends StatelessWidget {
             style: TextStyle(color: ColorsManager.textSecondary, fontSize: 13),
           ),
           const SizedBox(height: 12),
-
-          // الزرار اللي مش راضي يشتغل - عدله كدا بالظبط:
           InkWell(
             onTap: () {
-              // تأكد إن '/diagnosis' مكتوبة كدا بالظبط في الـ main.dart
-              Navigator.pushNamed(context, '/sumarry');
+              Navigator.pushNamed(context, '/diagnosis');
             },
             child: const Row(
               mainAxisSize: MainAxisSize.min,

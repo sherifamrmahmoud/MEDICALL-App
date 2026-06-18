@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-// ignore: camel_case_types
 class SummaryDiagnosis_Screen extends StatelessWidget {
   const SummaryDiagnosis_Screen({super.key});
 
@@ -27,18 +26,13 @@ class SummaryDiagnosis_Screen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // --- كارت ملخص الحالة الصحية ---
             _buildStatusHeader(),
-
             const SizedBox(height: 25.0),
-
             const Text(
               "Detailed Analysis",
               style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 15.0),
-
-            // --- تفاصيل القياسات الحيوية ---
             _buildInfoRow(
               "Blood Pressure",
               "120/80 mmHg",
@@ -58,16 +52,12 @@ class SummaryDiagnosis_Screen extends StatelessWidget {
               Icons.monitor_weight,
               Colors.green,
             ),
-
             const SizedBox(height: 25.0),
-
             const Text(
               "Doctor's Notes",
               style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10.0),
-
-            // --- ملاحظات الطبيب ---
             Container(
               padding: const EdgeInsets.all(15.0),
               decoration: BoxDecoration(
@@ -79,15 +69,12 @@ class SummaryDiagnosis_Screen extends StatelessWidget {
                 "The patient's condition is significantly improving. All vital signs are within the normal range. Continue the prescribed medication for another two weeks and maintain a healthy diet.",
                 style: TextStyle(
                   fontSize: 14.0,
-                  color: Color(0xFF0D47A1), // blue[900]
+                  color: Color(0xFF0D47A1),
                   height: 1.5,
                 ),
               ),
             ),
-
             const SizedBox(height: 30.0),
-
-            // --- زرار تحميل التقرير ---
             SizedBox(
               width: double.infinity,
               child: ElevatedButton.icon(

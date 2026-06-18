@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:nti5/features/My%20Appointments/widgets/appointment_card.dart';
 
@@ -21,14 +20,10 @@ class AppointmentsScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
               /// TITLE
               const Text(
                 "My Appointments",
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
 
               const SizedBox(height: 20),
@@ -44,10 +39,7 @@ class AppointmentsScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(width: 30),
-                  Text(
-                    "Past",
-                    style: TextStyle(color: Colors.grey),
-                  ),
+                  Text("Past", style: TextStyle(color: Colors.grey)),
                 ],
               ),
 
@@ -56,7 +48,6 @@ class AppointmentsScreen extends StatelessWidget {
               Expanded(
                 child: ListView(
                   children: const [
-
                     AppointmentCard(
                       doctorName: "Dr. Sarah Jenkins",
                       specialty: "Cardiologist",

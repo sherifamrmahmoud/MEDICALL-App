@@ -1,16 +1,47 @@
-# nti5
+# Medicall – Medical Consultation App 🏥
 
-A new Flutter project.
+Medicall is a scalable medical consultation application built with **Flutter**. It connects patients with certified doctors for 24/7 care, providing a seamless, user-friendly, and secure healthcare experience.
 
-## Getting Started
+## 🚀 App Intro
+![Onboarding](assets/medicall_3.jpg)
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## 📸 App Preview
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+| Home Dashboard | Doctor Profile | Medical Records |
+| :---: | :---: | :---: |
+| ![Home](assets/medicall_6.jpg) | ![Doctor](assets/medicall_8.jpg) | ![Records](assets/medicall_10.jpg) |
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+| Appointment Checkout | BMI Calculator | Auth Screens |
+| :---: | :---: | :---: |
+| ![Checkout](assets/medicall_9.jpg) | ![BMI](assets/bmi_1.jpg) | ![Auth](assets/medicall_5.jpg) |
+
+---
+
+## 🛠 Tech Stack
+
+* **Framework**: Flutter & Dart
+* **Architecture**: Clean Architecture
+* **State Management**: Bloc / Cubit
+* **Backend & DB**: Firebase Authentication & Cloud Firestore
+* **Networking**: REST APIs
+* **Design**: Custom UI/UX implementation
+
+---
+
+## 💡 Key Features
+
+* **User Authentication**: Secure Login/Sign-up flow powered by Firebase.
+* **Doctor Discovery**: Search and browse specialized doctors with ratings and profiles.
+* **Appointment Booking**: Easy-to-use booking system with date and time selection.
+* **Medical Records Management**: Organized dashboard to upload and track X-rays, lab results, and PDFs.
+* **BMI Calculator**: Integrated utility for users to track their health metrics.
+* **Responsive UI**: Modern, clean design optimized for various screen sizes.
+
+---
+
+## 👨‍💻 Author
+**Sherif Amr Mahmoud**
+
+*Feel free to reach out if you have any questions or would like to collaborate!*

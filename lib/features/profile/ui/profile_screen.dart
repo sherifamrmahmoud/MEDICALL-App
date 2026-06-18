@@ -15,7 +15,6 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      // تهيئة الـ Cubit واستدعاء بيانات المستخدم فوراً عند فتح الصفحة
       create: (context) => ProfileCubit(ProfileRepository())..getUserProfile(),
       child: Scaffold(
         backgroundColor: ColorsManager.background,
@@ -33,12 +32,13 @@ class ProfileScreen extends StatelessWidget {
         ),
         body: BlocConsumer<ProfileCubit, ProfileState>(
           listener: (context, state) {
-            // التعامل مع حالة تسجيل الخروج بنجاح
             if (state is LogoutSuccess) {
-              Navigator.pushReplacementNamed(context, '/login');
-            }
-            // عرض رسالة خطأ في حالة فشل تسجيل الخروج
-            else if (state is LogoutError) {
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                '/login',
+                (route) => false,
+              );
+            } else if (state is LogoutError) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text(state.error),
@@ -48,14 +48,12 @@ class ProfileScreen extends StatelessWidget {
             }
           },
           builder: (context, state) {
-            // عرض مؤشر تحميل أثناء جلب البيانات
             if (state is ProfileLoading) {
               return const Center(
                 child: CircularProgressIndicator(color: ColorsManager.primary),
               );
             }
 
-            // عرض رسالة خطأ في حالة فشل جلب بيانات البروفايل
             if (state is ProfileError) {
               return Center(child: Text(state.message));
             }
@@ -64,11 +62,8 @@ class ProfileScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 children: [
-                  // 1. الجزء العلوي (الصورة، الاسم، الإيميل)
                   const ProfileHeader(),
                   const SizedBox(height: 24),
-
-                  // 2. كروت المواعيد والسجلات الطبية (Quick Actions)
                   Row(
                     children: [
                       Expanded(
@@ -103,14 +98,8 @@ class ProfileScreen extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 24),
-
-                  // 3. قسم الملخص الطبي (Latest Summary)
-                  // ملاحظة: الزرار داخله مربوط بمسار '/summary'
                   const SummarySection(),
-
                   const SizedBox(height: 24),
-
-                  // 4. إعدادات الحساب (Settings List)
                   const Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
@@ -123,7 +112,6 @@ class ProfileScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 12),
-
                   SettingsListItem(
                     icon: Icons.person_outline,
                     title: "Personal Information",
@@ -149,13 +137,13 @@ class ProfileScreen extends StatelessWidget {
                     title: "Privacy Policy",
                     onTap: () {},
                   ),
-
                   const SizedBox(height: 24),
-
-                  // 5. زرار تسجيل الخروج (Logout Button)
                   state is LogoutLoading
-                      ? const CircularProgressIndicator(
-                          color: ColorsManager.primary,
+                      ? const Padding(
+                          padding: EdgeInsets.symmetric(vertical: 10),
+                          child: CircularProgressIndicator(
+                            color: ColorsManager.primary,
+                          ),
                         )
                       : TextButton.icon(
                           onPressed: () {
